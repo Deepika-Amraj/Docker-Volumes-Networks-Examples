@@ -1,0 +1,30 @@
+This repository provides practical examples for working with Docker Volumes and Docker Networks, essential for managing data persistence and inter-container communication in Dockerized applications. This project is part of my #90DaysOfDevOps challenge.
+
+Multi-Container docker-compose.yml Example
+This docker-compose.yml file sets up an application service (using Nginx) and a database service (using PostgreSQL). The setup also includes a custom network to allow communication between containers and a volume to persist database data.
+
+docker-compose.yml Content:
+Services:
+App Service: Runs an Nginx server, exposing it on port 8080.
+Database Service: Runs a PostgreSQL database with specific environment variables to set a default database, user, and password.
+Network and Volume:
+A network called app-network connects both containers so they can communicate with each other.
+A volume called db-data stores PostgreSQL data outside the container, ensuring data persistence even if the container is restarted or removed.
+
+Commands for Multi-Container Management:
+Start Containers in Detached Mode: Start the application and database containers in the background so they don’t block the terminal.
+Scale a Service: Increase the number of replicas for a specific service (such as the application) for load balancing or redundancy.
+View Container Status and Logs: View the status of all running containers and check logs for specific services to monitor their activities.
+Stop and Remove Containers, Networks, and Volumes: Clean up by stopping and deleting the containers, associated networks, and volumes, to ensure a fresh environment next time.
+
+Docker Volume Sharing Example
+For Task 2, here’s a docker-compose.yml file where two containers share data using a Docker volume.
+
+docker-compose.yml Content for Volume Sharing:
+Writer Service: Creates a shared file and writes a message to it. This file is saved in a volume called shared-data, making it accessible to both containers.
+Reader Service: Reads the message from the shared volume and displays it.
+Commands for Volume Sharing and Verification:
+Start Both Containers: Begin both the writer and reader services, which will share data through the specified volume.
+Verify Shared Data: Use commands to inspect the contents of the shared file in each container to confirm they have access to the same data.
+List and Remove Volumes: After testing, list all volumes to confirm their existence and remove them to clean up when done.
+
